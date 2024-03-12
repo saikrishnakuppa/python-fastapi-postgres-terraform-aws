@@ -74,7 +74,7 @@ terraform apply
 
 # 9. Test Application ALB after deploying
 Login to AWS Console to grab the application load balancer URL from EC2/Load Balancer tab
-https://<<your application ALB URL>/sample/fast-api/docs
+https://<<your application ALB URL>>/sample/fast-api/docs
 
 # 10. Destroy AWS Infra after testing/validating (to save cost)
 terraform destroy
