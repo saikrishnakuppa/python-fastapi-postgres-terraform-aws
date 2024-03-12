@@ -20,7 +20,15 @@ Terraform enables you to create, change & improve infrastructure using code. By 
 
 ## Local Setup
 
-This project requires a minimum of Python 3.12.
+### Software/Tools needed
+```bash
+# 1. Install Python v 3.12, https://www.python.org/downloads/
+# 2. Install Hashicorp/Terraform
+brew tap hashicorp/tap
+brew install hashicorp/tap/terraform
+# 3. Install Docker Desktop, https://docs.docker.com/desktop/install/mac-install/
+
+```
 
 To run API locally:
 
@@ -59,27 +67,31 @@ pip install -r requirements.txt
 
 # 4. Start the local server
 uvicorn src.main:app --reload
+```
+### Deploying Application in AWS ECS(Fargate), RDS(Postgres) provisioned using Terraform
 
-# 5. Build docker image
+```bash
+# 1. Build docker image
 docker build --file Dockerfile --platform=linux/amd64  --tag "<<your personal docker hub>>/fast-api-docker-example" .
 
-# 6. Apply Tag to Docker image
+# 2. Apply Tag to Docker image
 docker tag "<<your personal docker hub>>/fast-api-docker-example:latest" "<<your personal docker hub>>/fast-api-docker-example:latest"
 
-# 7. Push Docker image to DockerHub
+# 3. Push Docker image to DockerHub
 docker push "<<your personal docker hub>>>/fast-api-docker-example:latest"
 
-# 8. Run Terrform to create AWS Infra
+# 4. Run Terrform to create AWS Infra
 terraform apply
 
-# 9. Test Application ALB after deploying
+# 5. Test Application ALB after deploying
 Login to AWS Console to grab the application load balancer URL from EC2/Load Balancer tab
 https://<<your application ALB URL>>/sample/fast-api/docs
-
-# 10. Destroy AWS Infra after testing/validating (to save cost)
-terraform destroy
 ```
 
+### Destroy AWS Infra after testing/validating (to save cost)
+```bash
+terraform destroy
+```
 ## Formatting
 
 Run `pipenv run format` to run formatting for the project via Black.
