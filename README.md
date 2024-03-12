@@ -61,10 +61,10 @@ pip install -r requirements.txt
 uvicorn src.main:app --reload
 
 # 5. Build docker image
-docker build --file Dockerfile --platform=linux/amd64  --tag "saikrishnakuppa/fast-api-docker-example" .
+docker build --file Dockerfile --platform=linux/amd64  --tag "<<your personal docker hub>>/fast-api-docker-example" .
 
 # 6. Apply Tag to Docker image
-docker tag "<<your personal docker hub>>/fast-api-docker-example:latest" "saikrishnakuppa/fast-api-docker-example:latest"
+docker tag "<<your personal docker hub>>/fast-api-docker-example:latest" "<<your personal docker hub>>/fast-api-docker-example:latest"
 
 # 7. Push Docker image to DockerHub
 docker push "<<your personal docker hub>>>/fast-api-docker-example:latest"
